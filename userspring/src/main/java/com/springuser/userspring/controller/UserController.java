@@ -1,12 +1,11 @@
 package com.springuser.userspring.controller;
 
-
-
-
-
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+import java.util.Optional;
 
-//import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,9 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.springuser.userspring.entities.User;
-//import com.springuser.userspring.entities.UserAdd;
+import com.springuser.userspring.entities.UserAdd;
+import com.springuser.userspring.repository.UserRepository;
 import com.springuser.userspring.service.UserService;
-
 
 
 
@@ -34,8 +33,12 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	@Autowired
+	UserRepository userRepository;
 	
+
 	
+/*	
 	@GetMapping("/beat")
 	public String ping() {
 		return "HELLO WORLD";
@@ -75,6 +78,41 @@ public class UserController {
 	public List<User> getAll()
 	{
 		return userService.getDetail();
+	}
+	@PostMapping
+	public User createNewUser(@RequestBody User user)
+	{
+	     user.setId(2);
+		return userRepository.save(user);
+	}
+	/*@PostMapping("/add-address/{id}")
+	public User addAddress(@RequestBody UserAdd useradd,@PathVariable Integer id)
+	{
+		useradd.setId(UUID.randomUUID().toString());
+		useradd.setUser_id(id);
+		userRepository.save(useradd);
+		List<UserAdd> addressList=new ArrayList<>();
+		addressList.add(useradd);
+		Optional<User> user=userRepository.findById(id);
+		if(user.isPresent())
+		{
+			user.get().setUseradd(addressList);
+			for(int i=0;i<addressList.size();i++)
+			{
+				
+					addressList.get(i).getUser_id().equals(1);
+			}
+			return user.get();
+		}
+		else
+		{
+		return null;
+		}
+	}*/
+	
+	@PostMapping("/address/{id}")
+	public Optional<UserAdd> inserts(@RequestBody List<UserAdd> useradd, @PathVariable Integer id) {
+		return userService.insertaddr(useradd, id);
 	}
 	
    

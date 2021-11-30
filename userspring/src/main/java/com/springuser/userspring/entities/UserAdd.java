@@ -76,7 +76,9 @@ public class UserAdd {
 				+ ", getUser_id()=" + getUser_id() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
 				+ ", toString()=" + super.toString() + "]";
 	}
-	
+
+
+
 	
 	
 	

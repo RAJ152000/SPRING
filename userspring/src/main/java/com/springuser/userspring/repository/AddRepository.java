@@ -1,6 +1,8 @@
 package com.springuser.userspring.repository;
 
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
@@ -18,6 +20,10 @@ import com.springuser.userspring.entities.UserAdd;
 @EnableJpaRepositories
 public interface AddRepository extends JpaRepository<UserAdd, Integer>
 {
+
+	
+
+	
 
 	
 }
