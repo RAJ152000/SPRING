@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.springuser.userspring.entities.User;
 import com.springuser.userspring.entities.UserAdd;
 import com.springuser.userspring.repository.AddRepository;
-//import com.springuser.userspring.entities.UserAdd;
 import com.springuser.userspring.repository.UserRepository;
 
 @Service

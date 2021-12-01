@@ -1,9 +1,5 @@
 package com.springuser.userspring.entities;
 
-
-
-
-
 import java.util.List;
 
 import javax.persistence.Column;
