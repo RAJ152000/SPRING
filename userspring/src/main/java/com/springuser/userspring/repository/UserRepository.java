@@ -13,8 +13,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
 import com.springuser.userspring.entities.User;
-import com.springuser.userspring.entities.UserAdd;
-
 
 
 
@@ -31,9 +29,7 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 //@Query(value="select * from user inner join user_address on user.id=user_address.user_id where id=1;",nativeQuery=true)
 List<User> findAll();
 List<User> findByNameAndEmail(String name, String email);
-//void save(UserAdd useradd);
-void saveAll(List<UserAdd> useradd);
-List<UserAdd> findByUserid(Integer id);
+
 }
 
 

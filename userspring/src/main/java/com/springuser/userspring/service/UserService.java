@@ -21,7 +21,7 @@ public class UserService {
 	private AddRepository addRepository;
 
 	
-	/*
+	
 	public User changeEmail(String mail, Integer id) {
 		Optional<User> savedUser = userRepository.findById(id);
 		System.out.println(id);// Getting the saved user from DB using id (Primary field)
@@ -69,7 +69,7 @@ public class UserService {
 		// TODO Auto-generated method stub
 		System.out.println("name: " + name + " - email: " + email);
 		return userRepository.findByNameAndEmail(name, email);
-	}*/
+	}
 
 	public Optional<UserAdd> insertaddr(List<UserAdd> useradd, Integer id) {
 		// TODO Auto-generated method stub
