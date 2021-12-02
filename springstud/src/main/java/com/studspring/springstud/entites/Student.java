@@ -1,34 +1,39 @@
 package com.studspring.springstud.entites;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
 
 @Entity
 @Table(name="studentdetail")
-public class Student {
-		@Id
+public class Student
+     {
+	   @Id
 	   @Column(name="id")
        private Integer id;
-	  @Column(name="name")
+	   @Column(name="name")
        private String name;
-	  @Column(name="email")
+	   @Column(name="email")
        private String email;
 	  
-	 
+	   @OneToOne( cascade = CascadeType.ALL)
+	    //@JoinColumn(name = "sid",referencedColumnName = "id")
+	    private StudentPer studentPer;
 
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Student(Integer id, String name, String email, StudentPer studentPer) {
+	public Student( String name, String email, StudentPer studentPer) {
 		super();
-		this.id = id;
+		
 		this.name = name;
 		this.email = email;
 		
@@ -58,21 +63,14 @@ public class Student {
 		this.email = email;
 	}
 
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", email=" + email + ", getId()=" + getId() + ", getName()="
-				+ getName() + ", getEmail()=" + getEmail() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+	public StudentPer getStudentper() {
+		return studentPer;
+	}
+
+	public void setStudentper(StudentPer studentper) {
+		this.studentPer = studentper;
 	}
 
 	
-
 	
-	
-
-		  
-	  
-	  
-	  
-	  
 }

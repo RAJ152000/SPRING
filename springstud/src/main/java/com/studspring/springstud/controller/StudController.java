@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.studspring.springstud.entites.Student;
 import com.studspring.springstud.service.StudService;
 
-@RequestMapping("/student")
+@RequestMapping("/studentdetail")
 @RestController
-public class StudController {
+public class StudController 
+{
 	@Autowired
 	StudService studService;
 	
 	
 	
-	@GetMapping("/getdetail")
+	@GetMapping("/get")
 	public List<Student> getAll()
 	{
 		return studService.getDetail();

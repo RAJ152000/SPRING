@@ -2,11 +2,11 @@ package com.studspring.springstud.entites;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -22,9 +22,9 @@ public class StudentPer {
 	private String bloodgroup;
 	@Column(name="sid")
 	private Integer sid;
-	 @OneToOne(fetch = FetchType.LAZY, optional = false)
-	    @JoinColumn(name = "sid", nullable = false)
-	    private Student student;
+	 
+	@OneToOne(mappedBy="studentPer")
+	private Student student;
 	
 	public StudentPer() {
 		super();
@@ -37,9 +37,10 @@ public class StudentPer {
 		this.dob = dob;
 		this.bloodgroup = bloodgroup;
 		this.sid = sid;
-		this.student = student;
+		
 	}
 
+	
 	public String getFathername() {
 		return fathername;
 	}
@@ -80,11 +81,11 @@ public class StudentPer {
 		this.student = student;
 	}
 
-	@Override
-	public String toString() {
-		return "StudentPer [fathername=" + fathername + ", dob=" + dob + ", bloodgroup=" + bloodgroup + ", sid=" + sid
-				+ ", student=" + student + "]";
-	}
+	
+	
+	
+
+	
 
 		
 	
