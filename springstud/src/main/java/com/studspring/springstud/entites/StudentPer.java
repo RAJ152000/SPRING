@@ -5,10 +5,12 @@ import java.sql.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name="studentpersonal")
@@ -23,8 +25,10 @@ public class StudentPer {
 	@Column(name="sid")
 	private Integer sid;
 	 
-	@OneToOne(mappedBy="studentPer")
-	private Student student;
+	 @OneToOne(cascade = CascadeType.ALL)
+	    @JoinColumn(name = "id")
+	    @JsonBackReference
+	    private Student student;
 	
 	public StudentPer() {
 		super();
@@ -79,6 +83,15 @@ public class StudentPer {
 
 	public void setStudent(Student student) {
 		this.student = student;
+	}
+
+	@Override
+	public String toString() {
+		return "StudentPer [fathername=" + fathername + ", dob=" + dob + ", bloodgroup=" + bloodgroup + ", sid=" + sid
+				+ ", student=" + student + ", getFathername()=" + getFathername() + ", getDob()=" + getDob()
+				+ ", getBloodgroup()=" + getBloodgroup() + ", getSid()=" + getSid() + ", getStudent()=" + getStudent()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
 	}
 
 	

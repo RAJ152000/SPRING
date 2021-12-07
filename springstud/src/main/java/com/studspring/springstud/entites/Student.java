@@ -5,8 +5,11 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 
@@ -22,9 +25,12 @@ public class Student
 	   @Column(name="email")
        private String email;
 	  
-	   @OneToOne( cascade = CascadeType.ALL)
-	    //@JoinColumn(name = "sid",referencedColumnName = "id")
+	   @OneToOne(cascade = CascadeType.ALL, mappedBy = "student")
+	  
+	    @JsonManagedReference
 	    private StudentPer studentPer;
+
+	
 
 	public Student() {
 		super();
@@ -63,12 +69,9 @@ public class Student
 		this.email = email;
 	}
 
-	public StudentPer getStudentper() {
-		return studentPer;
-	}
-
-	public void setStudentper(StudentPer studentper) {
-		this.studentPer = studentper;
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", email=" + email + ", studentPer=" + studentPer + "]";
 	}
 
 	

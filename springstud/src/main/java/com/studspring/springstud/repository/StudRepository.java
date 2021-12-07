@@ -9,6 +9,8 @@ import com.studspring.springstud.entites.Student;
 @Repository
 @EnableJpaRepositories
 public interface StudRepository  extends JpaRepository<Student,Integer>{
+
+	
 	
 
 }

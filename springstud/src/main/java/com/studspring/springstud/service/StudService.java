@@ -1,6 +1,6 @@
 package com.studspring.springstud.service;
 
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,10 +13,17 @@ public class StudService {
 	@Autowired
 	StudRepository studRepository;
 
-	public List<Student> getDetail() {
+	public Iterable<Student> fetchAllRecords() {
 		// TODO Auto-generated method stub
 		return studRepository.findAll();
 	}
+
+	/*public List<Student> getDetail() {
+		// TODO Auto-generated method stub
+		return studRepository.findAll();
+	}*/
+
+	
 
 	
 }
