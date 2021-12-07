@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -14,16 +15,22 @@ import javax.persistence.Table;
 @Table(name="studentpersonal")
 public class StudentPer {
 	@Id
-	@Column(name="fathername")
-	private String fathername;
-	@Column(name="dob")
-	private Date dob;
-	@Column(name="bloodgroup")
-	private String bloodgroup;
 	@Column(name="sid")
 	private Integer sid;
+	@Column(name="fathername")
+	private String fathername;
+	@Column(name="gender")
+	private String gender;
+	@Column(name="dob")
+	private Date dob;
+	
+	@Column(name="stud_id")
+	private Integer stud_id;
 	 
-	@OneToOne(mappedBy="studentPer")
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "stud_id", nullable = false, updatable = false, insertable = false)
+
+
 	private Student student;
 	
 	public StudentPer() {
@@ -31,38 +38,14 @@ public class StudentPer {
 		// TODO Auto-generated constructor stub
 	}
 
-	public StudentPer(String fathername, Date dob, String bloodgroup, Integer sid, Student student) {
+	public StudentPer(Integer sid, String fathername, String gender, Date dob, Integer stud_id, Student student) {
 		super();
-		this.fathername = fathername;
-		this.dob = dob;
-		this.bloodgroup = bloodgroup;
 		this.sid = sid;
-		
-	}
-
-	
-	public String getFathername() {
-		return fathername;
-	}
-
-	public void setFathername(String fathername) {
 		this.fathername = fathername;
-	}
-
-	public Date getDob() {
-		return dob;
-	}
-
-	public void setDob(Date dob) {
+		this.gender = gender;
 		this.dob = dob;
-	}
-
-	public String getBloodgroup() {
-		return bloodgroup;
-	}
-
-	public void setBloodgroup(String bloodgroup) {
-		this.bloodgroup = bloodgroup;
+		this.stud_id = stud_id;
+		this.student = student;
 	}
 
 	public Integer getSid() {
@@ -73,6 +56,38 @@ public class StudentPer {
 		this.sid = sid;
 	}
 
+	public String getFathername() {
+		return fathername;
+	}
+
+	public void setFathername(String fathername) {
+		this.fathername = fathername;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+	public Integer getStud_id() {
+		return stud_id;
+	}
+
+	public void setStud_id(Integer stud_id) {
+		this.stud_id = stud_id;
+	}
+
 	public Student getStudent() {
 		return student;
 	}
@@ -81,14 +96,6 @@ public class StudentPer {
 		this.student = student;
 	}
 
-	
-	
-	
-
-	
-
 		
-	
-	
 	
 }

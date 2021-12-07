@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.studspring.springstud.entites.Student;
+import com.studspring.springstud.entites.StudentPer;
 import com.studspring.springstud.service.StudService;
 
 @RequestMapping("/studentdetail")
@@ -20,7 +21,7 @@ public class StudController
 	
 	
 	@GetMapping("/get")
-	public List<Student> getAll()
+	public List<StudentPer> getAll()
 	{
 		return studService.getDetail();
 	}
