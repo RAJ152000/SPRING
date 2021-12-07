@@ -14,11 +14,20 @@ import com.studspring.springstud.repository.StudRepository;
 public class StudService {
 	@Autowired
 	PersRepository persRepository;
+	@Autowired
+	StudRepository studRepository;
 
 	public List<StudentPer> getDetail() {
 		// TODO Auto-generated method stub
 		return persRepository.findAll();
 	}
 
+
+
+	public Student createRecord(Student student) {
+		// TODO Auto-generated method stub
+		return studRepository.save(student);
+	}
+	}
+
 	
-}

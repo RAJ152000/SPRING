@@ -17,10 +17,13 @@ public class StudentPer {
 	@Id
 	@Column(name="sid")
 	private Integer sid;
+	
 	@Column(name="fathername")
 	private String fathername;
+	
 	@Column(name="gender")
 	private String gender;
+	
 	@Column(name="dob")
 	private Date dob;
 	
