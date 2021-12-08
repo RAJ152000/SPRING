@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.studspring.springstud.entites.Student;
 import com.studspring.springstud.entites.StudentPer;
 import com.studspring.springstud.service.StudService;
@@ -22,10 +23,21 @@ public class StudController
 	
 	
 	
+<<<<<<< HEAD
 	@GetMapping("/get")
 	public List<StudentPer> getAll()
+=======
+	/*@GetMapping("/get")
+	public List<Student> getAll()
+>>>>>>> 40fb5a6d094ecb26e97652e343e7c15793e0de9e
 	{
 		return studService.getDetail();
+	}*/
+	
+	
+	@GetMapping("/all")
+	public Iterable<Student> fetchAll() {
+		return studService.fetchAllRecords();
 	}
 	
 	@PostMapping("/create")

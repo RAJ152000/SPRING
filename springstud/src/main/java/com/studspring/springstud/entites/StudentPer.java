@@ -5,11 +5,12 @@ import java.sql.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name="studentpersonal")
@@ -30,11 +31,18 @@ public class StudentPer {
 	@Column(name="stud_id")
 	private Integer stud_id;
 	 
+<<<<<<< HEAD
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "stud_id", nullable = false, updatable = false, insertable = false)
 
 
 	private Student student;
+=======
+	 @OneToOne(cascade = CascadeType.ALL)
+	    @JoinColumn(name = "id")
+	    @JsonBackReference
+	    private Student student;
+>>>>>>> 40fb5a6d094ecb26e97652e343e7c15793e0de9e
 	
 	public StudentPer() {
 		super();
@@ -99,6 +107,24 @@ public class StudentPer {
 		this.student = student;
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	public String toString() {
+		return "StudentPer [fathername=" + fathername + ", dob=" + dob + ", bloodgroup=" + bloodgroup + ", sid=" + sid
+				+ ", student=" + student + ", getFathername()=" + getFathername() + ", getDob()=" + getDob()
+				+ ", getBloodgroup()=" + getBloodgroup() + ", getSid()=" + getSid() + ", getStudent()=" + getStudent()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
+	}
+
+	
+	
+	
+
+	
+
+>>>>>>> 40fb5a6d094ecb26e97652e343e7c15793e0de9e
 		
 	
 }
