@@ -23,20 +23,13 @@ public class StudController
 	
 	
 	
-<<<<<<< HEAD
-	@GetMapping("/get")
-	public List<StudentPer> getAll()
-=======
-	/*@GetMapping("/get")
-	public List<Student> getAll()
->>>>>>> 40fb5a6d094ecb26e97652e343e7c15793e0de9e
-	{
-		return studService.getDetail();
-	}*/
+
+	
+
 	
 	
 	@GetMapping("/all")
-	public Iterable<Student> fetchAll() {
+	public List<StudentPer> fetchAll() {
 		return studService.fetchAllRecords();
 	}
 	
