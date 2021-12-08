@@ -8,6 +8,7 @@ public class UsermapApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UsermapApplication.class, args);
+		System.out.println("success!!!!");
 	}
 
 }
